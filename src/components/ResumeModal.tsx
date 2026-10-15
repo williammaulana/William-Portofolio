@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Printer, Mail, Phone, MapPin, Copy, Check } from 'lucide-react';
+import { X, Printer, Mail, Phone, MapPin, Copy, Check, Building2 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface ResumeModalProps {
@@ -24,7 +24,7 @@ export default function ResumeModal({ isOpen, onClose, lang }: ResumeModalProps)
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-sm animate-fade-in overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-sm animate-fade-in overflow-y-auto" onClick={onClose}>
       <div 
         className="relative w-full max-w-4xl bg-white dark:bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 my-6 max-h-[92vh] flex flex-col transition-colors duration-200"
         onClick={(e) => e.stopPropagation()}
@@ -59,10 +59,11 @@ export default function ResumeModal({ isOpen, onClose, lang }: ResumeModalProps)
 
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white bg-slate-200/80 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer"
               aria-label="Close"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
+              <span>{lang === 'en' ? "Close" : "Tutup"}</span>
             </button>
           </div>
         </div>
@@ -100,7 +101,8 @@ export default function ResumeModal({ isOpen, onClose, lang }: ResumeModalProps)
               <div className="text-xs text-right space-y-1 text-slate-600 dark:text-slate-400 print:text-gray-700 sm:self-end">
                 <div><span className="font-semibold text-slate-900 dark:text-slate-200 print:text-black">Experience:</span> 7+ Years (2019 - Present)</div>
                 <div><span className="font-semibold text-slate-900 dark:text-slate-200 print:text-black">Location:</span> Bandung, West Java, ID</div>
-                <div><span className="font-semibold text-slate-900 dark:text-slate-200 print:text-black">Hackathon Award:</span> PaDi UMKM (Telkom)</div>
+                <div><span className="font-semibold text-slate-900 dark:text-slate-200 print:text-black">Companies:</span> PT Smooets · Webhade Creative</div>
+                <div><span className="font-semibold text-slate-900 dark:text-slate-200 print:text-black">Award:</span> PaDi UMKM Tech Hackathon (Telkom)</div>
               </div>
             </div>
           </div>
@@ -142,157 +144,107 @@ export default function ResumeModal({ isOpen, onClose, lang }: ResumeModalProps)
             </div>
           </div>
 
-          {/* Employment History (matching resume line for line) */}
+          {/* Employment History */}
           <div className="mb-6">
             <h2 className="text-xs font-extrabold tracking-widest text-slate-900 dark:text-slate-300 print:text-black uppercase border-b border-slate-200 dark:border-slate-800 pb-1 mb-4">
               Employment & Key Projects
             </h2>
 
-            <div className="space-y-5 text-xs sm:text-sm">
+            <div className="space-y-6 text-xs sm:text-sm">
               
-              {/* 2025: Building Affiliate Program */}
+              {/* 2025: Building Affiliate Program & E-Commerce */}
               <div>
                 <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Building Affiliate Program</span>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2025</span>
-                </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  Java Spring Boot, Next.js, MySQL, Cowx Notifications
-                </div>
-                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Development of Affiliate Share Product Program with custom tracking link.</li>
-                  <li>Merchant controls to toggle product sharing permissions per item.</li>
-                  <li>Implemented dynamic commission calculation engine by percentage set by merchant.</li>
-                  <li>Engineered affiliate balance withdrawal settlement workflows.</li>
-                  <li>Affiliate dashboard with authentication, registration, and forgot password.</li>
-                  <li>Serial number generation and automated Cowx notifications upon transaction success.</li>
-                </ul>
-              </div>
-
-              {/* 2025 - Present: Building Materials E-Commerce */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Building Materials E-Commerce in Indonesia</span>
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white print:text-black">Building Materials E-Commerce & Building Affiliate Program</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 block sm:inline sm:ml-2 font-medium">Senior Software Developer</span>
+                  </div>
                   <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2025 - Present</span>
                 </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  Next.js, Tailwind CSS, Laravel, MySQL, RajaOngkir
+                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 my-1">
+                  Java Spring Boot, Next.js, Tailwind CSS, Laravel, MySQL, RajaOngkir, Cowx
                 </div>
                 <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Revamped key pages: customer registration, blog, wishlist, product details, and checkout.</li>
-                  <li>Implemented So & Do Bill (Sales Order & Delivery Order) for heavy building materials logistics.</li>
+                  <li>Engineered dynamic affiliate marketing program with configurable merchant commission rules and instant balance payouts.</li>
+                  <li>Revamped building materials online marketplace: customer registration, wishlist, So & Do Bill (Sales Order & Delivery Order) billing workflows, and RajaOngkir logistics.</li>
                   <li>Engineered product faceted filters, breadcrumb navigation, technical SEO, and mobile optimization.</li>
                 </ul>
               </div>
 
-              {/* 2024 - 2025: Delivery Services From Abroad */}
+              {/* 2024 - 2025: Web Based Delivery Services */}
               <div>
                 <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Web Based Delivery Services Application From Abroad</span>
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white print:text-black">Web Based Delivery Services Application From Abroad</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 block sm:inline sm:ml-2 font-medium">Full-Stack Web Developer</span>
+                  </div>
                   <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2024 - 2025</span>
                 </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
+                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 my-1">
                   Golang, Vue.js, Laravel, REST API, jQuery, MySQL
                 </div>
                 <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
                   <li>Developed web application for international delivery services handling cargo from abroad.</li>
-                  <li>Implemented UI/UX layout, backend integration, bug fixing, and tracking system enhancement.</li>
-                  <li>Built automated customs import tax calculation functions and transactional customer emails.</li>
+                  <li>Implemented customs import tax calculation algorithm and parcel tracking system with email alerts.</li>
                 </ul>
               </div>
 
-              {/* 2023: PaDi UMKM */}
-              <div>
+              {/* 2023: PT Smooets Technology Outsourcing (SIA & PaDi UMKM) */}
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 print:bg-transparent print:p-0 border border-slate-200 dark:border-slate-700 print:border-none">
                 <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">E-Commerce in Indonesia for UMKM (PaDi UMKM)</span>
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white print:text-black text-sm">PT Smooets Technology Outsourcing</span>
+                    <span className="text-xs text-blue-700 dark:text-blue-400 block font-semibold">Software Developer & Outsourcing Engineer</span>
+                  </div>
                   <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2023</span>
                 </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  Next.js, Express.js, MySQL, Mixpanel Analytics
+                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 my-1">
+                  Next.js, React.js, Express.js, MySQL, Microservices, Mixpanel Analytics
                 </div>
-                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Implemented Product Tax Counting algorithms for B2B procurement transactions.</li>
-                  <li>Developed 'Jasa' (Services) Marketplace module: Add, edit, and list services for UMKM providers.</li>
-                  <li>Implemented Mixpanel user behavior tracking across Register, Login, and Buyer B2B Dashboard.</li>
-                  <li>Integrated NPWP tax identification validation for LKPP government agency procurement.</li>
-                  <li>SEO & Canonical URL architecture optimizations across PaDi UMKM Buyer portal.</li>
-                </ul>
-              </div>
-
-              {/* 2023: Government Fund System */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Government Fund Information System</span>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2023</span>
-                </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  React.js, Express.js, MySQL, Microservices
-                </div>
-                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Cross-squad agile collaboration implementing balance definition in sprint stories.</li>
-                  <li>Executed manual testing, E2E testing, and API regression testing for onboarding microservices.</li>
+                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1.5 mt-2">
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">Government Fund Information System (SIA):</strong> Cross-squad sprint feature implementation to calculate and define budget balances in user stories; conducted manual testing, E2E testing, and API regression testing for microservices onboarding.</li>
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">PaDi UMKM (B2B MSME E-Commerce Telkom / BUMN):</strong> Implemented Product Tax Counting algorithms compliant with government LKPP procurement rules; built 'Jasa' (Services) Marketplace module for UMKM vendors.</li>
+                  <li>Configured Mixpanel tracking pipelines across Register, Login, and Buyer B2B Dashboard funnels; integrated NPWP validation for LKPP accounts.</li>
+                  <li>Awarded official PaDi UMKM Tech Hackathon Certificate by CEO Jimmy Karisma Ramadhan (August 2023).</li>
                 </ul>
               </div>
 
               {/* 2022: Study Overseas Management System */}
               <div>
                 <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Study Overseas Management System</span>
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white print:text-black">Study Overseas Management System & Education CRM</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 block sm:inline sm:ml-2 font-medium">Full-Stack Web Developer</span>
+                  </div>
                   <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2022</span>
                 </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
+                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 my-1">
                   PHP Laravel 5.4, REST API, jQuery, MySQL
                 </div>
                 <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Counselor, student application lifecycle, follow-up, and commission referral ledger.</li>
+                  <li>Counselor, student application lifecycle, follow-up milestone tracking, and referral commission calculations.</li>
                   <li>Automated counselor commission refund calculations and language institute invoice generator.</li>
                 </ul>
               </div>
 
-              {/* 2021: Automatically System Buy and Sell Stock */}
-              <div>
+              {/* 2019 - 2021: Webhade Creative */}
+              <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 print:bg-transparent print:p-0 border border-slate-200 dark:border-slate-700 print:border-none">
                 <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Automatically System Buy and Sell Company Stock</span>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2021</span>
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white print:text-black text-sm">Webhade Creative</span>
+                    <span className="text-xs text-blue-700 dark:text-blue-400 block font-semibold">Fullstack & Backend PHP Developer</span>
+                  </div>
+                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2019 - 2021</span>
                 </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  Node.js, Express.js, Puppeteer, REST API, MySQL
+                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 my-1">
+                  PHP, Laravel, Node.js, Puppeteer, Vue.js, MySQL, Midtrans
                 </div>
-                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Automated stock buy and sell order execution using Puppeteer headless web automation.</li>
-                  <li>Generated automated daily reports and order progress verification logs.</li>
-                </ul>
-              </div>
-
-              {/* 2020 - 2021: Procurement Platform */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Enterprise Procurement Platform</span>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2020 - 2021</span>
-                </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  Laravel, MySQL
-                </div>
-                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Wrote complete application architecture skeleton, database schema, and daily reporting.</li>
-                  <li>Implemented official invoice feature 'Nota Dinas Form Kebutuhan + RAB' and tracking document archive.</li>
-                </ul>
-              </div>
-
-              {/* 2019 - 2020: Crowdfunding, Pawn App & Retail Store */}
-              <div>
-                <div className="flex items-baseline justify-between">
-                  <span className="font-bold text-slate-900 dark:text-white print:text-black">Foundational Platforms (Donation, Pawn App, E-Commerce)</span>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400 print:text-gray-600">2019 - 2020</span>
-                </div>
-                <div className="text-[11px] font-mono text-blue-700 dark:text-blue-400 print:text-blue-700 mb-1.5">
-                  Laravel, Next.js, Midtrans, MySQL
-                </div>
-                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1">
-                  <li>Donation platform: Campaign scope, donor database, Midtrans gateway, automated email broadcasts.</li>
-                  <li>Inventory gallon water stock: Factory gallon count, broken gallon write-off, customer debt tracking.</li>
-                  <li>Pawn goods web app: Goods appraisal request submission, operator approval/rejection, loan interest formulas.</li>
-                  <li>Apparel retail store: Product categories, shopping cart, Midtrans integration, transactional receipt emails.</li>
+                <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 print:text-gray-800 space-y-1.5 mt-2">
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">Wellborn (Backend PHP Development | 2021):</strong> Backend e-commerce development for Bandung's premier streetwear brand, managing product catalogs, shopping cart workflows, Midtrans gateway checkout, and automated notification emails.</li>
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">KSP Mulatama (Fullstack Development | 2020 - 2021):</strong> Digitized member savings, loan appraisal workflows, interest calculations, collateral archive records, and official procurement memorandum forms (Nota Dinas + RAB).</li>
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">Patisa Inventory (Fullstack PHP Development | 2019 - 2020):</strong> Factory water gallon count dashboard, broken/damaged gallon reconciliations, customer accounts receivable tracker, and billing dispatches.</li>
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">Robot Tumi (Backend Development | 2020):</strong> Automated stock buy/sell order execution engine using Puppeteer headless web automation, algorithm triggers, transaction auditing, and daily reporting.</li>
+                  <li><strong className="text-slate-900 dark:text-slate-100 print:text-black">Kirimin.co.id (Backend Development | 2019 - 2021):</strong> Backend REST APIs for domestic and international courier deliveries, import customs tax computation algorithm, and real-time shipment status tracking.</li>
                 </ul>
               </div>
 
@@ -318,14 +270,14 @@ export default function ResumeModal({ isOpen, onClose, lang }: ResumeModalProps)
 
         </div>
 
-        {/* Modal Footer (no-print) */}
+        {/* Modal Footer with Primary Close Button (no-print) */}
         <div className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex items-center justify-between no-print shrink-0">
           <div className="text-xs text-slate-500 dark:text-slate-400">
-            Source: Official Resume & PaDi UMKM Certificate
+            Source: Official Resume, PaDi UMKM Certificate & Company Records
           </div>
           <button
             onClick={onClose}
-            className="px-4 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 rounded-lg transition-colors cursor-pointer"
+            className="px-5 py-2 text-xs sm:text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 rounded-lg transition-colors cursor-pointer"
           >
             {lang === 'en' ? "Close CV" : "Tutup CV"}
           </button>

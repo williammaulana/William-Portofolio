@@ -1,4 +1,4 @@
-import { CheckCircle2, GraduationCap } from 'lucide-react';
+import { CheckCircle2, GraduationCap, Building2 } from 'lucide-react';
 import { WORK_EXPERIENCE, PERSONAL_INFO } from '../data/portfolioData';
 
 interface ExperienceSectionProps {
@@ -16,12 +16,12 @@ export default function ExperienceSection({ lang }: ExperienceSectionProps) {
             {lang === 'en' ? "Career Chronology" : "Kronologi Karier"}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4">
-            {lang === 'en' ? "Professional Experience & Engineering Roles" : "Pengalaman Profesional & Peran Rekayasa"}
+            {lang === 'en' ? "Professional Experience & Company Track Record" : "Pengalaman Profesional & Rekam Jejak Perusahaan"}
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
             {lang === 'en'
-              ? "Over 7 continuous years delivering production software, from foundational MVC systems to distributed e-commerce microservices, affiliate infrastructure, and fintech automation."
-              : "Lebih dari 7 tahun berkarya membangun perangkat lunak produksi, mulai dari sistem arsitektur MVC hingga microservices e-commerce terdistribusi, infrastruktur afiliasi, dan otomasi fintech."}
+              ? "Over 7 continuous years delivering production software across distinguished agencies and enterprise tech teams, including PT Smooets Technology Outsourcing and Webhade Creative."
+              : "Lebih dari 7 tahun berkarya membangun sistem produksi di agensi teknologi dan tim enterprise, termasuk PT Smooets Technology Outsourcing dan Webhade Creative."}
           </p>
         </div>
 
@@ -34,12 +34,21 @@ export default function ExperienceSection({ lang }: ExperienceSectionProps) {
             >
               <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4 mb-5 pb-5 border-b border-slate-100 dark:border-slate-800">
                 
-                {/* Left: Role and Project Context */}
+                {/* Left: Role, Company and Project Context */}
                 <div>
                   <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-1.5 font-medium">
                     <span className="text-blue-600 dark:text-blue-400 font-semibold">{exp.period}</span>
                     <span aria-hidden="true">·</span>
                     <span>{exp.role}</span>
+                    {exp.company && (
+                      <>
+                        <span aria-hidden="true">·</span>
+                        <span className="inline-flex items-center gap-1 font-bold text-slate-800 dark:text-slate-200">
+                          <Building2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                          {lang === 'en' ? exp.company : (exp.companyId || exp.company)}
+                        </span>
+                      </>
+                    )}
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
                     {exp.project}
