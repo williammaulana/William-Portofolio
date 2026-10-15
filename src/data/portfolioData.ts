@@ -4,7 +4,6 @@ export interface ProjectItem {
   subtitle: string;
   period: string;
   client: string;
-  company?: string;
   category: 'ecommerce' | 'fintech' | 'enterprise' | 'logistics' | 'automation';
   stack: string[];
   summary: string;
@@ -21,8 +20,6 @@ export interface ExperienceItem {
   period: string;
   role: string;
   roleId: string;
-  company?: string;
-  companyId?: string;
   project: string;
   tech: string[];
   points: string[];
@@ -62,9 +59,9 @@ export const PERSONAL_INFO = {
   },
   stats: [
     { label: "Years Experience", labelId: "Tahun Pengalaman", value: "7+" },
-    { label: "Systems Engineered", labelId: "Sistem Terpasang", value: "14+" },
+    { label: "Systems Engineered", labelId: "Sistem Terpasang", value: "13+" },
     { label: "Tech Hackathon", labelId: "Sertifikasi Hackathon", value: "PaDi UMKM" },
-    { label: "Companies / Agencies", labelId: "Agensi & Perusahaan", value: "PT Smooets · Webhade" },
+    { label: "Core Frameworks", labelId: "Framework Utama", value: "Next · Vue · Laravel" },
   ]
 };
 
@@ -84,7 +81,7 @@ export const SKILL_CATEGORIES = [
   {
     category: "Backend & Systems",
     categoryId: "Backend & Sistem",
-    skills: ["Node.js", "Express.js", "Java Spring Boot", "Golang", "PHP", "Laravel", "Lumen", "REST APIs", "Microservices"]
+    skills: ["Node.js", "Express.js", "PHP", "Laravel", "Lumen", "REST APIs", "Microservices"]
   },
   {
     category: "Frontend & UI Engineering",
@@ -111,9 +108,9 @@ export const PROJECTS: ProjectItem[] = [
     period: "2025",
     client: "Fintech & Retail Affiliate Network",
     category: "fintech",
-    stack: ["Java Spring Boot", "Next.js", "MySQL", "REST API", "Cowx Notif"],
+    stack: ["Next.js", "Express.js", "MySQL", "REST API", "Cowx Notif"],
     featured: true,
-    image: "/src/assets/images/project_fintech_affiliate_1792051435841.jpg",
+    image: "/images/project_fintech_affiliate.jpg",
     summary: "Architected a comprehensive affiliate marketing program enabling merchants to configure custom commission percentages, share tracking links, and manage affiliate payouts seamlessly.",
     summaryId: "Merancang program afiliasi komprehensif yang memungkinkan merchant mengatur persentase komisi kustom, membagikan tautan pelacakan, serta mengelola pencairan saldo afiliasi secara transparan.",
     highlights: [
@@ -130,8 +127,8 @@ export const PROJECTS: ProjectItem[] = [
       "Dashboard afiliasi mandiri dengan autentikasi, registrasi, dan lupa kata sandi",
       "Pembuatan nomor seri otomatis dan notifikasi instan via Cowx setelah transaksi sukses"
     ],
-    architectureNotes: "Engineered with Java Spring Boot backend for strict transactional concurrency and balance locking, coupled with a responsive Next.js dashboard.",
-    architectureNotesId: "Dibangun dengan backend Java Spring Boot untuk konkurensi transaksi ketat dan penguncian saldo, dipadukan dengan frontend Next.js yang responsif."
+    architectureNotes: "Engineered with high-concurrency Node.js and Next.js for strict transactional integrity and balance ledger verification, coupled with automated Cowx notifications.",
+    architectureNotesId: "Dibangun dengan arsitektur Node.js dan Next.js berkecepatan tinggi untuk integritas transaksi ketat dan verifikasi saldo buku besar, dipadukan dengan notifikasi otomatis Cowx."
   },
   {
     id: "building-materials-ecommerce",
@@ -142,7 +139,7 @@ export const PROJECTS: ProjectItem[] = [
     category: "ecommerce",
     stack: ["Next.js", "Tailwind CSS", "Vue.js", "Laravel", "RajaOngkir", "MySQL"],
     featured: true,
-    image: "/src/assets/images/project_ecommerce_platform_1792051436317.jpg",
+    image: "/images/project_ecommerce_platform.jpg",
     summary: "Extensive performance overhaul and feature expansion for Indonesia's premier building materials online marketplace, introducing complex billing, delivery order flows, and mobile optimizations.",
     summaryId: "Pembaruan performa skala besar dan ekspansi fitur e-commerce bahan bangunan nasional, menghadirkan alur billing So & Do Bill serta optimasi antarmuka seluler.",
     highlights: [
@@ -167,13 +164,12 @@ export const PROJECTS: ProjectItem[] = [
     title: "PaDi UMKM B2B Marketplace & LKPP Tax Integration",
     subtitle: "Government-compliant tax counting, LKPP NPWP verification, Jasa marketplace, and Mixpanel analytics",
     period: "2023",
-    client: "PaDi UMKM (Telkom / BUMN)",
-    company: "PT Smooets Technology Outsourcing",
+    client: "PaDi UMKM (Telkom Indonesia / BUMN Ecosystem)",
     category: "ecommerce",
     stack: ["Next.js", "Express.js", "MySQL", "Mixpanel Analytics", "LKPP APIs"],
     featured: true,
-    summary: "Key contributions to Indonesia's official State-Owned Enterprises (BUMN) MSME procurement marketplace developed through PT Smooets Technology Outsourcing. Implemented tax compliance for government buyers, services marketplace, and end-to-end user analytics.",
-    summaryId: "Kontribusi inti pada marketplace pengadaan barang & jasa BUMN untuk UMKM Indonesia melalui PT Smooets Technology Outsourcing, mencakup kalkulasi pajak bagi pembeli pemerintah, modul jasa, dan analitik Mixpanel.",
+    summary: "Key contributions to Indonesia's official State-Owned Enterprises (BUMN) MSME procurement marketplace, implementing tax compliance for government buyers, services marketplace, and end-to-end user analytics.",
+    summaryId: "Kontribusi inti pada marketplace pengadaan barang & jasa BUMN untuk UMKM Indonesia, mencakup kalkulasi pajak bagi pembeli pemerintah, modul jasa, dan analitik Mixpanel.",
     highlights: [
       "Engineered automated Product Tax Counting algorithms compliant with LKPP procurement regulations",
       "Developed the 'Jasa' (Services) Marketplace module enabling UMKM vendors to add, edit, and catalog service offerings",
@@ -192,161 +188,13 @@ export const PROJECTS: ProjectItem[] = [
     architectureNotesId: "Berkaitan langsung dengan keikutsertaan William dalam PaDi UMKM Tech Hackathon (10-11 Agustus 2023) yang ditandatangani oleh CEO PaDi UMKM Jimmy Karisma Ramadhan."
   },
   {
-    id: "government-fund-system",
-    title: "SIA — Government Fund Information System",
-    subtitle: "Microservices balance allocation, E2E testing, and multi-environment onboarding at PT Smooets Technology",
-    period: "2023",
-    client: "Public Sector Financial Management",
-    company: "PT Smooets Technology Outsourcing",
-    category: "enterprise",
-    stack: ["React.js", "Express.js", "MySQL", "Jest", "Microservices"],
-    featured: false,
-    summary: "Worked at PT Smooets Technology Outsourcing in an agile cross-squad initiative engineering balance calculation logic across sprint user stories for the Government Fund Information System (SIA), accompanied by comprehensive E2E and regression testing across microservices.",
-    summaryId: "Bekerja di PT Smooets Technology Outsourcing dalam inisiatif agile cross-squad untuk kalkulasi alokasi dana per sprint pada Sistem Informasi Anggaran (SIA), disertai pengujian E2E dan regresi komprehensif pada microservices.",
-    highlights: [
-      "Worked with cross-squad sprint deliverables to implement balance calculation in agile user stories",
-      "Executed manual testing, E2E test suites, and API regression testing across development & staging",
-      "Verified API microservices contracts during multi-service onboarding pipelines for public sector financial systems"
-    ],
-    highlightsId: [
-      "Kolaborasi cross-squad untuk mengimplementasikan kalkulasi saldo anggaran per sprint",
-      "Melaksanakan pengujian manual, rangkaian pengujian E2E, dan pengujian regresi API di staging",
-      "Verifikasi kontrak integrasi microservices API saat proses onboarding antar layanan keuangan sektor publik"
-    ]
-  },
-  {
-    id: "kirimin-co-id",
-    title: "Kirimin.co.id — Parcel Delivery & Logistics Services",
-    subtitle: "Cross-border courier APIs, tax computation, and tracking system at Webhade Creative",
-    period: "2019 - 2021",
-    client: "Kirimin.co.id",
-    company: "Webhade Creative",
-    category: "logistics",
-    stack: ["Golang", "Vue.js", "Laravel", "REST API", "jQuery", "MySQL"],
-    featured: false,
-    summary: "Backend development at Webhade Creative for Kirimin.co.id, engineering web-based delivery services for international and domestic packages, custom customs tax calculations, tracking systems, and automated email notifications.",
-    summaryId: "Pengembangan backend di Webhade Creative untuk Kirimin.co.id, membangun layanan pengiriman paket internasional dan domestik, kalkulasi bea cukai, sistem pelacakan pengiriman, dan email transaksional.",
-    highlights: [
-      "Engineered backend REST APIs for Kirimin.co.id parcel delivery lifecycle",
-      "Created automated international import tax and customs fee calculator",
-      "Designed real-time parcel tracking milestone updates and transactional dispatch emails",
-      "Integrated front-facing Vue.js layout with high-throughput backend services"
-    ],
-    highlightsId: [
-      "Membangun REST API backend untuk siklus pengiriman paket Kirimin.co.id",
-      "Membuat sistem kalkulasi pajak bea cukai impor internasional berdasarkan tarif kepabeanan",
-      "Merancang antarmuka pelacak paket responsif dengan pembaruan status pengiriman real-time",
-      "Integrasi antarmuka Vue.js dengan layanan backend berkapasitas besar"
-    ]
-  },
-  {
-    id: "wellborn-ecommerce",
-    title: "Wellborn — Streetwear & Fashion E-Commerce",
-    subtitle: "Backend PHP development, product catalog, cart workflows & payment at Webhade Creative",
-    period: "2021",
-    client: "Wellborn Company",
-    company: "Webhade Creative",
-    category: "ecommerce",
-    stack: ["PHP", "Laravel", "MySQL", "Midtrans Payment", "REST API"],
-    featured: false,
-    summary: "Backend PHP development at Webhade Creative for Wellborn, Bandung's renowned independent streetwear fashion brand, engineering catalog APIs, shopping cart, Midtrans payment processing, and automated customer transaction notifications.",
-    summaryId: "Pengembangan Backend PHP di Webhade Creative untuk Wellborn, merek fashion streetwear independen terkemuka di Bandung, membangun API katalog, keranjang belanja, integrasi pembayaran Midtrans, dan notifikasi email.",
-    highlights: [
-      "Engineered backend architecture for Wellborn apparel e-commerce store",
-      "Constructed relational database schema for clothing categories, sizes, and stock availability",
-      "Integrated Midtrans payment gateway for instant checkout across credit card, e-wallet, and virtual accounts",
-      "Implemented automated purchase confirmation email dispatches to customers"
-    ],
-    highlightsId: [
-      "Membangun arsitektur backend toko e-commerce fashion streetwear Wellborn",
-      "Merancang skema database relasional untuk varian busana, ukuran, dan stok barang",
-      "Integrasi payment gateway Midtrans untuk transaksi instan via kartu kredit, e-wallet, dan VA",
-      "Implementasi pengiriman email konfirmasi pembelian otomatis kepada pelanggan"
-    ]
-  },
-  {
-    id: "ksp-mulatama",
-    title: "KSP Mulatama — Financial & Cooperative Management",
-    subtitle: "Fullstack development for savings and loan cooperative, member records, and loan disbursement at Webhade Creative",
-    period: "2020 - 2021",
-    client: "KSP Mulatama",
-    company: "Webhade Creative",
-    category: "fintech",
-    stack: ["Laravel", "PHP", "MySQL", "Bootstrap", "jQuery"],
-    featured: false,
-    summary: "Fullstack development at Webhade Creative for KSP Mulatama (Koperasi Simpan Pinjam), digitizing member savings accounts, loan application and appraisal, interest calculations, and automated financial transaction reporting.",
-    summaryId: "Pengembangan Fullstack di Webhade Creative untuk KSP Mulatama (Koperasi Simpan Pinjam), mendigitalkan tabungan anggota, pengajuan & taksiran pinjaman, formula bunga cicilan, dan laporan keuangan.",
-    highlights: [
-      "Built complete fullstack platform for KSP Mulatama cooperative operations",
-      "Engineered member savings, loan calculation algorithms, interest accrual, and monthly installment ledgers",
-      "Constructed operator approval workflows for member loan requests and collateral archiving",
-      "Generated official memorandum forms and periodic financial compliance reports"
-    ],
-    highlightsId: [
-      "Membangun sistem fullstack lengkap untuk operasional KSP Mulatama",
-      "Mengembangkan formula hitung pinjaman, bunga cicilan, dan buku besar angsuran bulanan",
-      "Membuat alur verifikasi dan persetujuan pengajuan pinjaman anggota beserta arsip jaminan",
-      "Menghasilkan laporan keuangan berkala dan berkas administratif pengadaan form RAB"
-    ]
-  },
-  {
-    id: "patisa-inventory",
-    title: "Patisa Inventory — Warehouse & Gallon Water Stock",
-    subtitle: "Fullstack PHP development for factory inventory, damaged stock write-offs, and billing at Webhade Creative",
-    period: "2019 - 2020",
-    client: "Patisa Inventory",
-    company: "Webhade Creative",
-    category: "logistics",
-    stack: ["PHP", "Laravel", "MySQL", "Bootstrap", "jQuery"],
-    featured: false,
-    summary: "Fullstack PHP development at Webhade Creative for Patisa Inventory, an industrial bottled water and gallon distribution system tracking warehouse stocks, factory gallon counts, damaged stock write-offs, and customer receivables.",
-    summaryId: "Pengembangan Fullstack PHP di Webhade Creative untuk Patisa Inventory, sistem inventaris pergudangan dan distribusi air minum galon, menghitung stok gudang vs pabrik, rekonsiliasi galon rusak, dan tagihan.",
-    highlights: [
-      "Engineered fullstack inventory management platform for Patisa warehouse operations",
-      "Built factory gallon batch counting and live inventory reconciliation modules",
-      "Created records for broken/damaged gallons and unaccounted distribution losses",
-      "Designed customer invoice generation and outstanding payment collection tracker"
-    ],
-    highlightsId: [
-      "Membangun platform manajemen inventaris fullstack untuk pergudangan Patisa",
-      "Membuat modul hitung stok galon pabrik dan rekonsiliasi inventaris gudang real-time",
-      "Membuat pencatatan galon rusak/pecah dan galon hilang selama distribusi",
-      "Merancang sistem penerbitan faktur tagihan dan pelacak piutang pelanggan"
-    ]
-  },
-  {
-    id: "robot-tumi",
-    title: "Robot Tumi — Automated Algorithmic Trading Bot",
-    subtitle: "Backend development for algorithmic buy/sell stock execution with Puppeteer at Webhade Creative",
-    period: "2020 - 2021",
-    client: "Robot Tumi",
-    company: "Webhade Creative",
-    category: "automation",
-    stack: ["Node.js", "Express.js", "Puppeteer", "REST API", "MySQL"],
-    featured: false,
-    summary: "Backend development at Webhade Creative for Robot Tumi, an automated stock buy and sell execution system utilizing Puppeteer headless web automation and REST APIs to fulfill algorithmic trade orders with daily performance progress reporting.",
-    summaryId: "Pengembangan backend di Webhade Creative untuk Robot Tumi, sistem automasi jual/beli saham algoritmik menggunakan Puppeteer headless browser dan REST API, mengeksekusi order trading dan menyusun laporan harian.",
-    highlights: [
-      "Developed Robot Tumi automated order execution routines using Puppeteer headless automation",
-      "Implemented algorithm-driven trading triggers and order placement safeguards",
-      "Created automated daily progress reporting routines and transaction audit logs",
-      "Engineered resilient MySQL schema for transaction recording, error recovery, and latency tracking"
-    ],
-    highlightsId: [
-      "Mengembangkan rutinitas eksekusi order otomatis Robot Tumi dengan automasi headless Puppeteer",
-      "Implementasi pemicu trading algoritmik dan validasi ketat sebelum order dieksekusi",
-      "Membangun pelaporan progres harian otomatis dan rekaman audit transaksi",
-      "Merancang skema database MySQL untuk pencatatan transaksi, pemulihan eror, dan pemantauan latensi"
-    ]
-  },
-  {
     id: "international-delivery-system",
     title: "Cross-Border International Delivery Platform",
     subtitle: "Multi-currency import tax computation, parcel routing, and real-time tracking engine",
-    period: "2024 - 2025",
+    period: "2024 - 2025 & 2021 - 2022",
     client: "Global Logistics & Freight Forwarder",
     category: "logistics",
-    stack: ["Golang", "Vue.js", "Laravel", "REST API", "jQuery", "MySQL"],
+    stack: ["Vue.js", "Laravel", "REST API", "jQuery", "MySQL"],
     featured: false,
     summary: "Built enterprise logistics application for international air and ocean cargo delivery, handling dynamic customs calculations, parcel status progression, and automated customer dispatch alerts.",
     summaryId: "Membangun aplikasi logistik internasional untuk pengiriman kargo udara dan laut, menghitung kalkulasi bea cukai otomatis, pelacakan paket, dan notifikasi pengiriman.",
@@ -354,13 +202,81 @@ export const PROJECTS: ProjectItem[] = [
       "Created automated international import tax calculation engine adhering to customs brackets",
       "Designed responsive Vue.js shipment tracker with milestone waypoint updates",
       "Integrated transactional email dispatcher for parcel status transitions",
-      "Optimized Golang and Laravel REST APIs for high-throughput manifest synchronization"
+      "Optimized Laravel REST APIs and caching layer for high-throughput manifest synchronization"
     ],
     highlightsId: [
       "Membuat sistem kalkulasi pajak bea cukai impor internasional berdasarkan tarif kepabeanan",
       "Merancang antarmuka pelacak paket responsif dengan Vue.js untuk pembaruan status pengiriman",
       "Integrasi pengiriman email transaksional otomatis pada setiap perubahan status kargo",
-      "Optimasi REST API Golang & Laravel untuk sinkronisasi manifes kargo berkapasitas besar"
+      "Optimasi REST API Laravel dan caching layer untuk sinkronisasi manifes kargo berkapasitas besar"
+    ]
+  },
+  {
+    id: "algorithmic-stock-trading",
+    title: "Automated Algorithmic Stock Trading System",
+    subtitle: "Headless browser automation with Puppeteer, algorithm trigger execution, and daily reporting",
+    period: "2021",
+    client: "Quantitative Trading & Securities Portfolio",
+    category: "automation",
+    stack: ["Node.js", "Express.js", "Puppeteer", "REST API", "MySQL"],
+    featured: false,
+    summary: "Automated stock purchase and disposal engine using Puppeteer headless web automation and REST APIs, fulfilling systematic trade orders and generating audit logs.",
+    summaryId: "Sistem automasi transaksi jual-beli saham menggunakan Puppeteer headless browser dan REST API, mengeksekusi order trading algoritmik dan menyusun log audit.",
+    highlights: [
+      "Engineered automated buy & sell order execution scripts using Puppeteer headless automation",
+      "Implemented strict order validation and trade confirmation response checks",
+      "Built automated daily progress and portfolio status reporting routines",
+      "Designed database schema for transaction auditing, latency tracking, and error resilience"
+    ],
+    highlightsId: [
+      "Membangun skrip eksekusi transaksi beli & jual otomatis dengan automasi headless Puppeteer",
+      "Implementasi validasi order ketat serta verifikasi konfirmasi respon transaksi pasar",
+      "Membangun rutinitas pelaporan harian otomatis status portofolio dan progres transaksi",
+      "Merancang skema database untuk audit transaksi, pemantauan latensi, dan penanganan kegagalan"
+    ]
+  },
+  {
+    id: "government-fund-system",
+    title: "Government Fund Information System",
+    subtitle: "Microservices balance allocation, E2E testing, and multi-environment onboarding",
+    period: "2023",
+    client: "Public Sector Financial Management",
+    category: "enterprise",
+    stack: ["React.js", "Express.js", "MySQL", "Jest", "Microservices"],
+    featured: false,
+    summary: "Participated in an agile cross-squad initiative engineering balance calculation logic across sprint user stories, accompanied by comprehensive E2E and regression testing across microservices.",
+    summaryId: "Berpartisipasi dalam inisiatif agile cross-squad untuk kalkulasi alokasi dana per sprint, disertai pengujian E2E dan regresi komprehensif pada microservices.",
+    highlights: [
+      "Collaborated in cross-squad sprint deliverables to implement balance calculation in agile stories",
+      "Conducted manual testing, E2E test suites, and API regression testing across development & staging",
+      "Verified API microservices contracts during multi-service onboarding pipelines"
+    ],
+    highlightsId: [
+      "Kolaborasi cross-squad untuk mengimplementasikan kalkulasi saldo anggaran per sprint",
+      "Melaksanakan pengujian manual, rangkaian pengujian E2E, dan pengujian regresi API di staging",
+      "Verifikasi kontrak integrasi microservices API saat proses onboarding antar layanan"
+    ]
+  },
+  {
+    id: "procurement-platform",
+    title: "Enterprise Corporate Procurement Platform",
+    subtitle: "Budget requisition, Nota Dinas workflow, and RAB financial documentation",
+    period: "2020 - 2021",
+    client: "Corporate Governance & Sourcing Division",
+    category: "enterprise",
+    stack: ["Laravel", "MySQL", "Bootstrap", "REST API"],
+    featured: false,
+    summary: "Engineered application skeleton and business logic for corporate procurement workflows, digitizing official memorandum forms (Nota Dinas) and project cost planning (RAB).",
+    summaryId: "Membangun fondasi arsitektur dan logika bisnis sistem pengadaan barang perusahaan, mendigitalkan form Nota Dinas Kebutuhan dan Rencana Anggaran Biaya (RAB).",
+    highlights: [
+      "Authored primary backend architecture, routing, and database schema from inception",
+      "Engineered automated invoicing and approval workflows for 'Nota Dinas Form Kebutuhan' + RAB",
+      "Built archival tracking system for procurement compliance documentation and audit reports"
+    ],
+    highlightsId: [
+      "Menulis arsitektur backend utama, routing, dan skema database dari tahap awal",
+      "Membangun alur persetujuan dan penerbitan berkas form Nota Dinas Kebutuhan + RAB",
+      "Membangun sistem pelacakan arsip dokumen untuk kepatuhan audit pengadaan perusahaan"
     ]
   },
   {
@@ -408,6 +324,28 @@ export const PROJECTS: ProjectItem[] = [
     ]
   },
   {
+    id: "gallon-water-stock",
+    title: "Water Gallon Factory & Inventory System",
+    subtitle: "Factory batch reconciliation, damaged gallon write-offs, and receivables ledger",
+    period: "2020",
+    client: "Industrial Water Bottling & Distribution",
+    category: "logistics",
+    stack: ["Laravel", "MySQL", "Bootstrap"],
+    featured: false,
+    summary: "Comprehensive warehouse and distribution tracking system for bottled gallon water logistics, handling plant production counts, warehouse reconciliations, and debt collections.",
+    summaryId: "Sistem inventaris dan logistik pergudangan air galon, mengelola hitung stok pabrik, rekonsiliasi galon rusak/hilang, dan penagihan piutang pelanggan.",
+    highlights: [
+      "Engineered stock counting dashboard monitoring live inventory across factory and distribution hubs",
+      "Built reconciliation modules for factory inventory, damaged/broken gallons, and unaccounted losses",
+      "Designed customer receivable tracker flagging overdue customer payments and issuing invoices"
+    ],
+    highlightsId: [
+      "Membangun dashboard hitung stok real-time di pabrik dan gudang distribusi",
+      "Membuat modul rekonsiliasi stok pabrik, pencatatan galon rusak/pecah, dan galon hilang",
+      "Merancang sistem penagihan piutang pelanggan dan pencetakan faktur tagihan otomatis"
+    ]
+  },
+  {
     id: "pawn-goods-app",
     title: "Online Collateral Submission & Pawn System",
     subtitle: "Collateral appraisal request queue, interest rate calculating, and appraisal decisions",
@@ -428,18 +366,38 @@ export const PROJECTS: ProjectItem[] = [
       "Membuat antarmuka operator untuk evaluasi nilai taksiran, persetujuan, dan penolakan gadai",
       "Mengembangkan log riwayat gadai serta formula hitung pelunasan pinjaman dan bunga"
     ]
+  },
+  {
+    id: "clothes-ecommerce",
+    title: "Apparel Retail & E-Commerce Store",
+    subtitle: "Product catalog, Midtrans payment processing, and transactional email broadcasts",
+    period: "2019",
+    client: "Independent Apparel & Fashion Brand",
+    category: "ecommerce",
+    stack: ["Next.js", "Laravel", "MySQL", "Midtrans Payment"],
+    featured: false,
+    summary: "Consumer-facing apparel web shop with clean catalog taxonomy, shopping cart, Midtrans integration, and automated order confirmation broadcasts.",
+    summaryId: "Toko online pakaian ritel dengan struktur katalog rapi, keranjang belanja, integrasi pembayaran Midtrans, dan email konfirmasi otomatis.",
+    highlights: [
+      "Constructed database schema, product categories, and responsive clothing showcase",
+      "Integrated 3rd-party Midtrans payment gateway for digital checkout",
+      "Implemented automated order notification emails dispatched on purchase confirmation"
+    ],
+    highlightsId: [
+      "Merancang skema database, kategori produk busana, dan katalog belanja responsif",
+      "Integrasi payment gateway Midtrans pihak ketiga untuk transaksi pembayaran digital",
+      "Implementasi pengiriman email notifikasi otomatis setiap transaksi berhasil"
+    ]
   }
 ];
 
 export const WORK_EXPERIENCE: ExperienceItem[] = [
   {
     period: "2025 - Present",
-    role: "Senior Full-Stack Software Developer",
-    roleId: "Senior Full-Stack Software Developer",
-    company: "Enterprise E-Commerce & Retail Fintech",
-    companyId: "Enterprise E-Commerce & Retail Fintech",
+    role: "Full-Stack Software Developer",
+    roleId: "Full-Stack Software Developer",
     project: "Building Materials E-Commerce & Building Affiliate Program",
-    tech: ["Java Spring Boot", "Next.js", "Tailwind CSS", "MySQL", "Cowx"],
+    tech: ["Next.js", "Tailwind CSS", "Express.js", "Laravel", "MySQL", "Cowx"],
     points: [
       "Engineered comprehensive affiliate sharing program with dynamic merchant percentage commission calculations and instant balance withdrawal.",
       "Contributed to building materials e-commerce platform revamp across registration, blog, wishlist, product details, and checkout.",
@@ -457,10 +415,8 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
     period: "2024 - 2025",
     role: "Full-Stack Web Developer",
     roleId: "Full-Stack Web Developer",
-    company: "International Freight & Logistics",
-    companyId: "Logistik & Ekspedisi Internasional",
-    project: "Web-Based Delivery Services Application From Abroad",
-    tech: ["Golang", "Vue.js", "Laravel", "REST API", "jQuery", "MySQL"],
+    project: "International Delivery & Freight Services Application",
+    tech: ["Vue.js", "Laravel", "REST API", "jQuery", "MySQL"],
     points: [
       "Developed web application for international delivery services handling cargo from abroad.",
       "Executed end-to-end UI/UX implementation, backend integration, and tracking enhancements.",
@@ -474,69 +430,63 @@ export const WORK_EXPERIENCE: ExperienceItem[] = [
   },
   {
     period: "2023",
-    role: "Software Developer & Outsourcing Engineer",
-    roleId: "Software Developer & Outsourcing Engineer",
-    company: "PT Smooets Technology Outsourcing",
-    companyId: "PT Smooets Technology Outsourcing",
-    project: "Government Fund Information System (SIA) & PaDi UMKM",
-    tech: ["Next.js", "React.js", "Express.js", "MySQL", "Microservices", "Mixpanel"],
+    role: "Software Developer & E-Commerce Engineer",
+    roleId: "Software Developer & E-Commerce Engineer",
+    project: "PaDi UMKM (B2B MSME E-Commerce by Telkom / BUMN) & Government Fund System",
+    tech: ["Next.js", "Express.js", "React.js", "MySQL", "Mixpanel"],
     points: [
-      "Assigned to Government Fund Information System (SIA): Cross-squad sprint feature implementation to define budget balance in stories with E2E and regression testing across microservices.",
       "Awarded Tech Hackathon Certificate by PaDi UMKM CEO Jimmy Karisma Ramadhan (Aug 2023).",
-      "Implemented Product Tax Counting algorithms compliant with government LKPP standards and user tracking management in PaDi UMKM.",
+      "Implemented Product Tax Counting algorithms and User Tracking Management in PaDi UMKM.",
       "Built 'Jasa' (Services) Marketplace module enabling UMKM vendors to publish and manage services.",
       "Configured Mixpanel tracking pipelines across Register, Login, and B2B Dashboard funnels.",
-      "Integrated NPWP tax identification validation for LKPP government agency procurement accounts."
+      "Integrated NPWP tax identification validation for LKPP government procurement accounts.",
+      "Engineered balance calculation logic in agile cross-squad sprints with E2E and regression testing."
     ],
     pointsId: [
-      "Ditempatkan pada Sistem Informasi Anggaran (SIA): Implementasi kalkulasi saldo anggaran per sprint dalam tim cross-squad, disertai pengujian E2E dan regresi pada microservices.",
       "Meraih Sertifikat Tech Hackathon resmi dari CEO PaDi UMKM Jimmy Karisma Ramadhan (Agustus 2023).",
-      "Mengimplementasikan sistem hitung pajak produk sesuai standar LKPP dan manajemen pelacakan pengguna di PaDi UMKM.",
+      "Mengimplementasikan sistem hitung pajak produk dan manajemen pelacakan pengguna di PaDi UMKM.",
       "Membangun modul marketplace 'Jasa' yang memungkinkan vendor UMKM menawarkan layanan mereka.",
       "Mengonfigurasi pelacakan Mixpanel di funnel registrasi, login, dan dashboard pembeli B2B.",
-      "Integrasi validasi NPWP untuk kepatuhan akun pengadaan instansi pemerintah (LKPP)."
+      "Integrasi validasi NPWP untuk kepatuhan akun pengadaan instansi pemerintah (LKPP).",
+      "Mengembangkan logika kalkulasi saldo anggaran dalam sprint cross-squad dengan pengujian E2E & regresi."
     ]
   },
   {
-    period: "2022 - 2022",
-    role: "Full-Stack Web Developer",
-    roleId: "Full-Stack Web Developer",
-    company: "International Academic Agency",
-    companyId: "Agensi Pendidikan Internasional",
-    project: "Study Overseas Management System & Education CRM",
-    tech: ["PHP Laravel 5.4", "REST API", "jQuery", "MySQL"],
+    period: "2021 - 2022",
+    role: "Full-Stack Developer",
+    roleId: "Full-Stack Developer",
+    project: "Study Overseas CRM, International Freight & Stock Automation",
+    tech: ["Node.js", "Puppeteer", "Laravel", "REST API", "Vue.js", "MySQL"],
     points: [
-      "Constructed Overseas Education CRM with counselor commission, referral management, and student follow-up pipeline.",
-      "Automated counselor commission refund calculations and language institute invoice generator.",
-      "Designed event marketing campaign trackers and student admission progress dashboards."
+      "Built automated stock buy/sell execution system with Puppeteer headless automation and daily reports.",
+      "Constructed Overseas Education CRM with counselor commission, referral management, and language institute invoicing.",
+      "Developed web-based delivery layout and backend REST APIs for cross-border freight."
     ],
     pointsId: [
-      "Mengembangkan CRM studi luar negeri dengan perhitungan komisi konselor, referral, dan pelacakan tahapan pendaftaran siswa.",
-      "Otomatisasi kalkulasi komisi konselor, kebijakan refund, dan pembuatan invoice kursus bahasa asing.",
-      "Merancang sistem pelacak kampanye event marketing dan dashboard progres penerimaan siswa."
+      "Membangun sistem automasi jual/beli saham dengan Puppeteer headless browser dan pelaporan harian.",
+      "Mengembangkan CRM studi luar negeri dengan perhitungan komisi konselor, referral, dan penagihan biaya kursus.",
+      "Mengembangkan antarmuka dan REST API backend untuk pengiriman barang internasional."
     ]
   },
   {
     period: "2019 - 2021",
-    role: "Fullstack & Backend PHP Developer",
-    roleId: "Fullstack & Backend PHP Developer",
-    company: "Webhade Creative",
-    companyId: "Webhade Creative",
-    project: "Wellborn, KSP Mulatama, Patisa Inventory, Robot Tumi & Kirimin.co.id",
-    tech: ["PHP", "Laravel", "Node.js", "Puppeteer", "Vue.js", "MySQL", "Midtrans"],
+    role: "Web & Platform Developer",
+    roleId: "Web & Platform Developer",
+    project: "Procurement Platform, Crowdfunding, Pawn App & Retail E-Commerce",
+    tech: ["Laravel", "Next.js", "Midtrans Payment", "Bootstrap", "MySQL"],
     points: [
-      "Wellborn (Backend PHP Development | 2021): Engineered backend e-commerce architecture for Bandung's prominent streetwear brand with Midtrans payments.",
-      "KSP Mulatama (Fullstack Development | 2020 - 2021): Developed cooperative financial management, savings, loan interest calculations, and collateral workflows.",
-      "Patisa Inventory (Fullstack PHP Development | 2019 - 2020): Built factory and warehouse inventory tracking, damaged gallon write-offs, and customer billing.",
-      "Robot Tumi (Backend Development | 2020): Engineered automated stock trading bot execution with Puppeteer headless automation and daily reports.",
-      "Kirimin.co.id (Backend Development | 2019 - 2021): Developed backend REST APIs, import customs tax calculations, and real-time shipment tracking."
+      "Architected enterprise procurement application skeleton with Nota Dinas and RAB budget reporting.",
+      "Engineered online donation platform with Midtrans digital payment processing and donor broadcast emails.",
+      "Created factory water gallon stock tracking, lost/damaged gallon reconciliations, and billing modules.",
+      "Developed online pawn appraisal workflow and interest payment calculation logic.",
+      "Built apparel e-commerce store with Midtrans payment integration and transactional notifications."
     ],
     pointsId: [
-      "Wellborn (Backend PHP Development | 2021): Membangun arsitektur backend e-commerce toko fashion streetwear dengan integrasi pembayaran Midtrans.",
-      "KSP Mulatama (Fullstack Development | 2020 - 2021): Mengembangkan sistem manajemen keuangan koperasi simpan pinjam, kalkulasi bunga, dan alur taksiran jaminan.",
-      "Patisa Inventory (Fullstack PHP Development | 2019 - 2020): Membangun sistem inventaris pergudangan air galon pabrik, pencatatan barang rusak, dan modul penagihan.",
-      "Robot Tumi (Backend Development | 2020): Mengembangkan sistem automasi trading saham Robot Tumi menggunakan automasi headless Puppeteer dan laporan harian.",
-      "Kirimin.co.id (Backend Development | 2019 - 2021): Membangun REST API backend pengiriman paket, kalkulasi bea cukai, dan pelacakan kargo real-time."
+      "Merancang fondasi arsitektur platform pengadaan perusahaan dengan form Nota Dinas dan pelaporan RAB.",
+      "Membangun platform donasi online dengan integrasi Midtrans dan pengiriman email tanda terima donatur.",
+      "Membuat sistem hitung stok air galon pabrik, rekonsiliasi galon rusak/hilang, dan modul tagihan.",
+      "Mengembangkan aplikasi taksiran gadai online beserta formula perhitungan bunga pinjaman.",
+      "Membangun toko e-commerce pakaian dengan integrasi pembayaran Midtrans dan notifikasi transaksi."
     ]
   }
 ];

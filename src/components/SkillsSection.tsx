@@ -33,8 +33,8 @@ export default function SkillsSection({ lang }: SkillsSectionProps) {
           </h2>
           <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
             {lang === 'en'
-              ? "Pragmatic mastery of full-stack ecosystems across modern JavaScript/TypeScript, enterprise Java, robust PHP frameworks, Golang microservices, and high-volume relational databases."
-              : "Penguasaan ekosistem full-stack modern meliputi JavaScript/TypeScript, enterprise Java, framework PHP teruji, Golang microservices, serta database relasional berkapasitas tinggi."}
+              ? "Pragmatic mastery of full-stack ecosystems across modern JavaScript/TypeScript (Next.js, React, Node.js), robust PHP frameworks (Laravel, Lumen), REST microservices, and high-volume relational databases."
+              : "Penguasaan ekosistem full-stack modern meliputi JavaScript/TypeScript (Next.js, React, Node.js), framework PHP teruji (Laravel, Lumen), microservices REST, serta database relasional berkapasitas tinggi."}
           </p>
         </div>
 

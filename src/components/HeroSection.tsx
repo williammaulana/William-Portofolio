@@ -103,12 +103,15 @@ export default function HeroSection({ lang, onOpenResume, onOpenCertModal }: Her
 
           {/* Right Column: Visual Container at Matching Height */}
           <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-slate-900 shadow-xl group">
+            <div className="relative rounded-2xl overflow-hidden border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-slate-900 via-sky-950 to-slate-950 shadow-xl group">
               <img
-                src="/src/assets/images/hero_dev_workspace_1792051436328.jpg"
+                src="/images/hero_dev_workspace.jpg"
                 alt="William Maulana Yusuf developer workstation"
                 className="w-full h-80 sm:h-96 lg:h-full min-h-[380px] object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
               />
               {/* Measured contrast scrim */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent pointer-events-none" />
@@ -123,7 +126,7 @@ export default function HeroSection({ lang, onOpenResume, onOpenCertModal }: Her
                   William Maulana Yusuf
                 </p>
                 <p className="text-xs text-slate-300 mt-1 line-clamp-2">
-                  Specializing in Next.js, Java Spring Boot, Laravel, Golang, and automated transaction engines.
+                  Specializing in Next.js, React, Node.js, Express, Laravel, and automated transaction engines.
                 </p>
                 
                 <div className="mt-3 pt-3 border-t border-white/10 flex items-center justify-between">

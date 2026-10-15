@@ -49,12 +49,15 @@ export default function ProjectDetailModal({ project, isOpen, onClose, lang }: P
 
           {/* Optional Project Visual */}
           {project.image && (
-            <div className="relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 max-h-72">
+            <div className="relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 max-h-72 bg-slate-900">
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             </div>
           )}
